@@ -1,2 +1,2 @@
 # LuaGl
-lua game in opengl
+lua game in not realy opengl
