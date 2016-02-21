@@ -44,11 +44,19 @@ function misc.tableToString(t)
 end
 function misc.CloneScene(t)
   rt = {}
-  for i = 1,1 do
+  for i = 1,#t do
     m = t[i]
     rt[i] = shapes.Panel(m.a.x,m.a.y,m.a.z,m.b.x,m.b.y,m.b.z,m.c.x,m.c.y,m.c.z,m.d.x,m.d.y,m.d.z,m.texture,m.color)
     rt[i].display = m.display
   end
   return rt
+end
+function misc.proportion(In,Imax,Omin,Omax)
+  adjustedHigh = (Omax - Omin);       
+  return ((In/Imax)*adjustedHigh) + Omin;
+end
+function misc.getMovementDirection(I)
+  misc.proportion()
+  return out
 end
 return misc

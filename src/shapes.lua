@@ -15,17 +15,30 @@ function shapes.Panel(ax,ay,az,bx,by,bz,cx,cy,cz,dx,dy,dz,image,Color)
   return p
 end
 function shapes.cube()
-  p = shapes.Panel(0,1,0,0,1,1,1,1,1,1,1,0) --top
-  shapes.movePanel(p,x,y,z)
-  scene[#scene+1] = p
+--p = shapes.Panel(0,1,0, 0,1,1, 1,1,1, 1,1,0, "grass_top",shapes.Color(126,190,84,255)) --top
+a = shapes.Panel(0,1,0, 0,1,1, 1,1,1, 1,1,0, "grass_top",shapes.Color(math.random()*254,190,84,255)) --top
+shapes.movePanel(a,y,0,-x)
+scene[#scene+1] = a
         
-   p = shapes.Panel(0,0,0,0,0,1,1,0,1,1,0,0) --buttom
-   shapes.movePanel(p,x,y,z)
-   scene[#scene+1] = p
+b = shapes.Panel(0,0,0, 0,0,1, 1,0,1, 1,0,0, "dirt") --bottom
+shapes.movePanel(b,y,0,-x)
+scene[#scene+1] = b
         
-   p = shapes.Panel(0,0,0,1,0,0,1,1,0,0,1,0) --side
-   shapes.movePanel(p,x,y,z)
-    scene[#scene+1] = p
+c = shapes.Panel(0,1,0, 0,0,0, 1,0,0, 1,1,0, "grass_side") --side
+shapes.movePanel(c,y,0,-x)
+scene[#scene+1] = c
+        
+d = shapes.Panel(0,1,1, 0,0,1, 1,0,1, 1,1,1, "grass_side") --side
+shapes.movePanel(d,y,0,-x)
+scene[#scene+1] = d
+        
+e = shapes.Panel(0,1,0, 0,0,0, 0,0,1, 0,1,1, "grass_side") --side
+shapes.movePanel(e,y,0,-x)
+scene[#scene+1] = e
+        
+f = shapes.Panel(1,1,0, 1,0,0, 1,0,1, 1,1,1, "grass_side") --side
+shapes.movePanel(f,y,0,-x)
+scene[#scene+1] = f
 end
 function shapes.Color(r,g,b,a)
   return {r,g,b,a}
