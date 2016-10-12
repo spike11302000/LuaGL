@@ -112,25 +112,25 @@ function love.draw()
         --translate(Player.x,Player.y,Player.z,renderScene)
         for _, poly in pairs(renderScene) do
                 if poly.a.z > -10 then
-                local ax, ay, az = project(poly.a)
-                local bx, by, bz = project(poly.b)
-                local cx, cy, cz = project(poly.c)
-                local dx, dy, dz = project(poly.d)
-               
-                if az < 0 or bz < 0 or cz < 0 or dz < 0 then
-                  
-                        render[#render + 1] = {
-                                vertices = {
-                                        {ax, ay, 0, 0};
-                                        {bx, by, 0, 1};
-                                        {cx, cy, 1, 1};
-                                        {dx, dy, 1, 0};
-                                };
-                                poly = poly;
-                                z = (az + bz + cz + dz)/3;
-                        }
+                        local ax, ay, az = project(poly.a)
+                        local bx, by, bz = project(poly.b)
+                        local cx, cy, cz = project(poly.c)
+                        local dx, dy, dz = project(poly.d)
+
+                        if az < 0 or bz < 0 or cz < 0 or dz < 0 then
+
+                                render[#render + 1] = {
+                                        vertices = {
+                                                {ax, ay, 0, 0};
+                                                {bx, by, 0, 1};
+                                                {cx, cy, 1, 1};
+                                                {dx, dy, 1, 0};
+                                        };
+                                        poly = poly;
+                                        z = (az + bz + cz + dz)/3;
+                                }
+                                end
                         end
-                end
         end
         
         table.sort(render, sortRender)
@@ -159,7 +159,7 @@ end
  
 function translate(x, y, z, points)
         if not points then
-          points = scene
+                points = scene
         end
         for _, poly in pairs(points) do
                 for _, vertex in pairs {poly.a, poly.b, poly.c, poly.d} do
